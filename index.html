@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agua Pluvial - Proyecto</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>🌊 Gestión del Agua Pluvial 🌧️</h1>
+    </header>
+    
+    <nav class="botones">
+        <button onclick="mostrarDiv('div1')">Carrusel de Agua</button>
+        <button onclick="mostrarDiv('div2')">Importancia</button>
+        <button onclick="mostrarDiv('div3')">Soluciones</button>
+    </nav>
+
+    <main>
+        <section id="div1" class="contenido">
+            <div class="carrusel">
+                <button class="prev" onclick="cambiarImagen(-1)">❮</button>
+                <div class="carrusel-contenedor">
+                    <img src="img/agua1.jpg" class="slide">
+                    <img src="img/agua2.jpg" class="slide">
+                    <img src="img/agua3.jpg" class="slide">
+                </div>
+                <button class="next" onclick="cambiarImagen(1)">❯</button>
+            </div>
+        </section>
+
+        <section id="div2" class="contenido">
+            <p>El agua pluvial es vital para la sostenibilidad y su recolección puede mejorar la gestión hídrica.</p>
+        </section>
+
+        <section id="div3" class="contenido">
+            <p>Las soluciones incluyen captación en techos, filtrado ecológico y almacenamiento en cisternas.</p>
+        </section>
+    </main>
+
+    <script src="arch.js"></script>
+</body>
+</html>
