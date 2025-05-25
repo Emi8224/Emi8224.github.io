@@ -1,58 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #3a7bd5, #00d2ff);
-    color: white;
+    font-family: 'Cinzel', serif;
+    background: url('img33.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #FFFFFF; /* Blanco puro para máxima claridad */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8); /* Sombra más intensa para legibilidad */
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-header h1 {
-    font-size: 2.5em;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+#pantalla-inicio {
+    padding: 60px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.botones button {
-    background: rgba(255, 255, 255, 0.3);
-    border: 2px solid white;
-    border-radius: 20px;
-    padding: 10px 25px;
-    font-size: 1.4em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.botones button:hover {
-    transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.6);
-}
-
-.contenido {
-    display: none;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.active {
-    display: block;
-    opacity: 1;
-}
-
-#quiz-container {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    border-radius: 10px;
-    max-width: 400px;
-    margin: auto;
-}
-
+/* Botones generales */
 button {
     background: #00d2ff;
-    color: white;
+    color: #000000; /* Negro sólido para buen contraste */
+    font-size: 1.7em;
+    padding: 18px 35px;
     border: none;
-    padding: 10px 15px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
     background: #3a7bd5;
+    transform: scale(1.1);
+    color: #FFFFFF; /* Cambia a blanco en hover */
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Ocultar contenido por defecto */
+.contenido {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    margin: auto;
+}
+
+/* 🎠 Carrusel de imágenes */
+.carrusel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carrusel-contenedor {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+}
+
+.active-slide {
+    display: block;
+    animation: fadeIn 1s;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* 📊 Cotización */
+#productos {
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    width: 80%;
+    margin: auto;
+    text-align: left;
+}
+
+#productos label {
+    display: block;
+    font-size: 1.4em;
+    margin: 12px 0;
+    cursor: pointer;
+    color: #FFFFFF; /* Letras en blanco para mejor visibilidad */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+#productos input {
+    width: 60px;
+    font-size: 1.2em;
+    padding: 7px;
+    margin-left: 12px;
+}
+
+#productos button {
+    background: #3a7bd5;
+    color: white;
+    font-size: 1.4em;
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+#productos button:hover {
+    background: #00d2ff;
+}
+
+/* 🔹 Solución para textos que no se veían */
+#total-final {
+    font-size: 2em; /* Aumento de tamaño */
+    color: #FFD700; /* Dorado brillante */
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#resultado {
+    font-size: 1.8em;
+    color: #FFFFFF; /* Blanco puro */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Sombra fuerte */
+}
+
+h3 {
+    font-size: 1.6em;
+    color: #00FF00; /* Verde claro */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* 🎮 Juego de Preguntas */
+#quiz-container {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    width: 80%;
+    margin: auto;
+}
+
+#opciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#opciones button {
+    width: 60%;
+    padding: 12px;
+    font-size: 1.4em;
+    background: #FFD700; /* Dorado para mejor visibilidad */
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#opciones button:hover {
+    background: #FFA500;
+    transform: scale(1.05);
+}
+
+#resultadoJuego {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #FFFFFF; /* Texto claro */
+}
+
+#quiz-container h3 {
+    font-size: 2em;
+    color: #FFD700; /* Dorado */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

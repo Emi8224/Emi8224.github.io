@@ -3,60 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Agua Pluvial</title>
+    <title>💧 Proyecto Agua Pluvial</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <header>
-        <h1>🌊 Gestión del Agua Pluvial 🌧️</h1>
-    </header>
 
-    <nav class="botones">
-        <button onclick="mostrarDiv('div1')">Carrusel de Agua</button>
-        <button onclick="mostrarDiv('div2')">Cotización Real</button>
-        <button onclick="mostrarDiv('div3')">Juego de Preguntas</button>
-    </nav>
+    <div id="pantalla-inicio">
+        <h1 class="titulo">💧 Gestión Inteligente del Agua Pluvial</h1>
+        <p>Descubre cómo aprovechar el agua pluvial para un futuro sostenible.</p>
+        <button onclick="iniciarProyecto()">🌍 Comenzar</button>
+    </div>
 
-    <main>
-        <section id="div1" class="contenido">
-            <div class="carrusel">
-                <button class="prev" onclick="cambiarImagen(-1)">❮</button>
-                <div class="carrusel-contenedor">
-                    <img src="imagenes/img1.jpg" class="slide">
-                    <img src="imagenes/img2.jpg" class="slide">
-                    <img src="imagenes/img3.jpg" class="slide">
+    <div id="contenido" style="display: none;">
+        <header>
+            <h1 class="titulo">💧 Proyecto Agua Pluvial</h1>
+        </header>
+
+        <nav class="botones">
+            <button onclick="mostrarDiv('div1')">🌊 Carrusel</button>
+            <button onclick="mostrarDiv('div2')">📊 Cotización</button>
+            <button onclick="mostrarDiv('div3')">❓ Juego</button>
+        </nav>
+
+        <main>
+            <section id="div1" class="contenido">
+                <h2>🌊 Carrusel de imágenes</h2>
+                <div class="carrusel">
+                    <button class="prev" onclick="cambiarImagen(-1)">❮</button>
+                    <div class="carrusel-contenedor">
+                        <img src="imagenes/img1.jpg" class="slide">
+                        <img src="imagenes/img2.jpg" class="slide">
+                        <img src="imagenes/img3.jpg" class="slide">
+                        <img src="imagenes/img4.jpg" class="slide">
+                        <img src="imagenes/img5.jpg" class="slide">
+                        <img src="imagenes/img6.jpg" class="slide">
+                        <img src="imagenes/img7.jpg" class="slide">
+                        <img src="imagenes/img8.jpg" class="slide">
+                        <img src="imagenes/img9.jpg" class="slide">
+                        <img src="imagenes/img10.jpg" class="slide">
+                    </div>
+                    <button class="next" onclick="cambiarImagen(1)">❯</button>
                 </div>
-                <button class="next" onclick="cambiarImagen(1)">❯</button>
-                <div class="indicadores"></div>
-            </div>
-        </section>
+            </section>
 
-        <section id="div2" class="contenido">
-            <h2>💧 Cotización Completa de Agua Pluvial</h2>
-            <form id="formulario">
-                <label for="area">Área de captación (m²):</label>
-                <input type="number" id="area" required>
+            <section id="div2" class="contenido">
+                <h2>📊 Cotización Inteligente</h2>
+                <form id="formulario">
+                    <label for="area">📏 Área de captación (m²):</label>
+                    <input type="number" id="area" required>
 
-                <label for="precipitacion">Precipitación anual (mm):</label>
-                <input type="number" id="precipitacion" required>
+                    <label for="precipitacion">🌧️ Precipitación anual (mm):</label>
+                    <input type="number" id="precipitacion" required>
 
-                <button type="button" onclick="calcularCotizacion()">Generar Cotización</button>
-            </form>
+                    <button type="button" onclick="calcularCotizacion()">📈 Generar Cotización</button>
+                </form>
 
-            <div id="resultado"></div>
-            <div id="detalle-cotizacion"></div>
-        </section>
+                <div id="resultado"></div>
 
-        <section id="div3" class="contenido">
-            <h2>❓ Juego de Preguntas sobre Agua Pluvial</h2>
-            <div id="quiz-container">
-                <p id="pregunta"></p>
-                <div id="opciones"></div>
-                <button onclick="siguientePregunta()">Siguiente</button>
-            </div>
-            <p id="resultadoJuego"></p>
-        </section>
-    </main>
+                <h2>🔧 Mejora tu sistema</h2>
+                <div id="productos">
+                    <label for="tanque">🛢️ Tanque 5000L - $4500 (Capacidad: 5000L)</label>
+                    <input type="number" id="tanque" min="0" max="10" value="0" data-precio="4500" data-capacidad="5000"> Unidades<br>
+
+                    <label for="tanqueGrande">🛢️ Tanque 10000L - $8000 (Capacidad: 10000L)</label>
+                    <input type="number" id="tanqueGrande" min="0" max="10" value="0" data-precio="8000" data-capacidad="10000"> Unidades<br>
+
+                    <label for="tanqueIndustrial">🛢️ Tanque 20000L - $15000 (Capacidad: 20000L)</label>
+                    <input type="number" id="tanqueIndustrial" min="0" max="10" value="0" data-precio="15000" data-capacidad="20000"> Unidades<br>
+
+                    <label for="filtroOsmosis">🔬 Filtro de ósmosis inversa - $3500 (Capacidad: 200L/día)</label>
+                    <input type="number" id="filtroOsmosis" min="0" max="10" value="0" data-precio="3500" data-capacidad="200"> Unidades<br>
+
+                    <label for="colectorLluvia">💧 Colector de lluvia industrial - $5000 (Capacidad: 5000L)</label>
+                    <input type="number" id="colectorLluvia" min="0" max="10" value="0" data-precio="5000" data-capacidad="5000"> Unidades<br>
+
+                    <button type="button" onclick="actualizarCotizacion()">💰 Actualizar Cotización</button>
+                </div>
+
+                <div id="total-final"></div>
+                <div id="detalle-conteo"></div>
+            </section>
+
+            <section id="div3" class="contenido">
+                <h2>🎮 Juego de Preguntas</h2>
+                <div id="quiz-container" style="display: none;">
+                    <p id="pregunta"></p>
+                    <div id="opciones"></div>
+                    <p id="resultadoJuego"></p>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <script src="arch.js"></script>
 </body>
